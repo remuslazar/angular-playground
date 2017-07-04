@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<h2>Get current locale</h2>
+<p>Hello, I'm currently using the locale: {{localeID}}</p>
+<dl>
+  <dt>Number</dt>
+  <dd>{{ number | number }}</dd>
+  <dt>Price</dt>
+  <dd>{{ number | currency:'EUR':true }}</dd>
+</dl>
