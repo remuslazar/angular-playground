@@ -23,4 +23,14 @@ describe('AppComponent', () => {
     expect(app.title).toBeUndefined();
   }));
 
+  it('should throw', async(() => {
+    expect(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      app.shouldThrow = true;
+      fixture.detectChanges();
+      expect(app.title).toBeUndefined();
+    }).toThrowError('foo error');
+  }));
+
 });

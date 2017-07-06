@@ -10,5 +10,14 @@ export class AppComponent {
   number = 123.23;
   date = new Date();
 
+  shouldThrow = false;
   constructor(@Inject(LOCALE_ID) public localeID: string)  {}
+
+
+  iWillThrowAnError(): number {
+    if (this.shouldThrow) {
+      throw Error('foo error');
+    }
+    return 123;
+  }
 }
