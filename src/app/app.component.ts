@@ -1,4 +1,11 @@
 import {Component, Inject, LOCALE_ID} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
+export enum TestEnum {
+  first,
+  second,
+  third,
+}
 
 @Component({
   selector: 'app-root',
@@ -11,8 +18,20 @@ export class AppComponent {
   date = new Date();
 
   shouldThrow = false;
-  constructor(@Inject(LOCALE_ID) public localeID: string)  {}
 
+  form: FormGroup;
+  TestEnum = TestEnum;
+
+  constructor(@Inject(LOCALE_ID) public localeID: string, fb: FormBuilder)  {
+    this.form = fb.group({
+      'enum': [TestEnum.first, Validators.pattern(/\d*/)],
+    });
+  }
+
+  // noinspection JSMethodCanBeStatic
+  onSubmit(form) {
+    console.log(form);
+  }
 
   iWillThrowAnError(): number {
     if (this.shouldThrow) {
