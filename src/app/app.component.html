@@ -19,11 +19,16 @@
 <p>{{iWillThrowAnError()}}</p>
 
 <h3>Form Test</h3>
-<form>
+<form [formGroup]="form">
   <select title="" [formControl]="form.controls['enum']">
     <option [ngValue]="TestEnum.first">First Option with [ngValue]</option>
     <option [value]="TestEnum.second">Second Option with [value]</option>
     <option value="{{TestEnum.third}}">Third Option with value=""</option>
   </select>
+  <h3>Form Number Control Test</h3>
+  <div>
+    <label>Number</label>
+    <input formControlName="number">
+  </div>
   <button (click)="onSubmit(form.value)">Submit</button>
 </form>
