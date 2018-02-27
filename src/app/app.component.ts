@@ -25,7 +25,7 @@ export class AppComponent {
   constructor(@Inject(LOCALE_ID) public localeID: string, fb: FormBuilder)  {
     this.form = fb.group({
       'enum': [TestEnum.first, Validators.pattern(/\d*/)],
-      'number': [123.11, Validators.min(0)],
+      'number': [123.11, Validators.min(1)],
     });
   }
 

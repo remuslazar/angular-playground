@@ -28,7 +28,10 @@
   <h3>Form Number Control Test</h3>
   <div>
     <label>Number</label>
-    <input formControlName="number">
+    <input type="number" formControlName="number">
+    <div>
+      This form is {{ form.status }}
+    </div>
   </div>
   <button (click)="onSubmit(form.value)">Submit</button>
 </form>
